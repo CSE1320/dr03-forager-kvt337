@@ -10,6 +10,7 @@ const warningMessage = {
     message: "This is a toxic species, proceed with caution."
 };
 
+
 // Two flavors of exporting:
 // export default dummyData; // Requires import dummyData from './data/development.js';
 
