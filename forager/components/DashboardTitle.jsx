@@ -10,7 +10,7 @@ const DashboardTitle = () => {
             <div className="profile-picture mb-8 mr-6 w-10 h-10 rounded-full bg-[#5F464B] flex items-center justify-center">
                 <h1 className="profile-letter text-white font-nunito text-[150%] font-normal leading-10">C</h1>
             </div>
-            <img className="dashboard-bg absolute left-[220px] top-[0px] z-[-1]" src="/images/dashboard-bg.png" alt="mushroom image"/>
+            <img className="dashboard-bg absolute right-0 top-0 z-[-1]" src="/images/dashboard-bg.png" alt="mushroom image"/>
         </div>
     );
 };

@@ -10,9 +10,9 @@ export default function SandboxPage() {
       {/* <Message/> */}
       {/* <Button/> */}
       {/* <Postcard/> */}
-      {/* <MushroomList/> */}
+      <MushroomList/>
       {/* <PageTitle/> */}
-      <SearchBar/>
+      {/* <SearchBar/> */}
       </div>
     );
 }

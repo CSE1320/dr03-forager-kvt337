@@ -5,3 +5,18 @@ body, html{
   width: 100%;
   height: 100%;
 }
+
+.fact {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  color: white; /* text-white in Tailwind */
+  font-size: 1.125rem; /* text-lg in Tailwind (equivalent to 18px) */
+}
+
+.fact > h2 {
+  font-weight: bold; /* font-bold */
+  margin-right: 0.5rem; /* mr-2 (8px in Tailwind) */
+}
+
