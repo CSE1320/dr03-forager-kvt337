@@ -10,13 +10,20 @@ const warningMessage = {
     message: "This is a toxic species, proceed with caution."
 };
 
+const createMushroom = (name, image, warning) => ({
+    name,
+    image: `/images/${image}_sm.png`, 
+    warning
+});
+
 const mushroomData = [
-    {
-        name: "Death Cap",
-        image: "/images/deathcap.jpg",
-        warning: true,
-    }
+    createMushroom("Death Cap", "death_cap", true),
+    createMushroom("Paddy Straw", "paddy_straw", false),
+    createMushroom("Destroying Angel", "destroying_angel", true),
+    createMushroom("False Death Cap", "false_death_cap", true),
+    createMushroom("Puffball", "puffball", false),
 ];
+
 
 export default mushroomData;
 

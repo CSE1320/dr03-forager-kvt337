@@ -18,7 +18,7 @@ export default function NavBar() {
       </Link>
       <Link href="/photosearch" passHref>
         <div className={styles.navItem}>
-          <FaSearch />
+          <FaSearch/>
         </div>
       </Link>
     </div>
