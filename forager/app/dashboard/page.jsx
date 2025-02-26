@@ -1,7 +1,8 @@
 import NavBar from '../../components/NavBar'; 
 import DashboardTitle from '@/components/DashboardTitle'; 
 import SearchBar from '@/components/SearchBar';
-import MushroomList from '@/components/MushroomList'; 
+import MushroomList from '@/components/MushroomList';
+import FilterPage from '@/components/FilterPage'; 
 
 export default function DashboardPage() {
   const filterButton = (
@@ -12,6 +13,7 @@ export default function DashboardPage() {
   
   return (
     <div className=""> 
+      <FilterPage/>
       <DashboardTitle/>
       <div className="search-filter-container flex flex-row justify-center"></div>
       <div className="search-filter-container flex flex-row justify-center">
