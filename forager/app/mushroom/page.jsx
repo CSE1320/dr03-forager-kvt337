@@ -14,7 +14,7 @@ export default function MushroomPage() {
       <div className="page-items mt-[120px] flex flex-col items-center w-[80%] overflow-y">
         <div className="report-error-container w-[100%] flex flex-row justify-between items-center mt-4 mb-6">
           <p>Not what you expected?</p>
-          <Button text="Report error" color="red" />
+          <p className="report-link text-gray-500 underline">Report Error</p>
         </div>
 
         <Message/>
