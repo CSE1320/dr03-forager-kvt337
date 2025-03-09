@@ -45,12 +45,11 @@ const ComparisonTable = () => {
 
     return (
         <div className="flex bg-white pt-2 pb-4 w-full h-full font-bold text-[#203B5F]">
+            {/* User Photo Features Column */}
             <div className="photo-features w-1/3 flex flex-col items-center justify-center">
                 {Object.keys(userInput).map((key, index) => (
                     <div key={key} style={styles.inputContainer}>
-                        <button 
-                            onClick={() => handleClear(key)} 
-                        >
+                        <button onClick={() => handleClear(key)}>
                             <div className="bg-gray-200 rounded-full w-4 h-4 flex items-center justify-center">
                                 <p className="text-xs font-semibold text-gray-500">x</p>
                             </div>

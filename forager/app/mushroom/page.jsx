@@ -1,3 +1,5 @@
+"use client";
+import { useState } from 'react';
 import Link from 'next/link';
 import NavBar from '../../components/NavBar';
 import PageTitle from '@/components/PageTitle';
@@ -5,8 +7,28 @@ import Button from '@/components/Button';
 import Message from '@/components/Message';
 import Postcard from '@/components/Postcard';
 import '@/styles/globals.css';
+import MushroomList from '@/components/MushroomList';
 
 export default function MushroomPage() {
+
+  const [favorite, setFavorite] = useState("");
+
+  const toggleFavorite = (mushroomId) => {
+    setFavorite((prev) => {
+      let updatedFavorites;
+      if (prev.includes(mushroomId)) {
+        updatedFavorites = prev.filter((id) => id !== mushroomId);
+      } else {
+        updatedFavorites = [...prev, mushroomId];
+      }
+  
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      return updatedFavorites;
+    });
+  };
+  
+  
+  
   return (
     <div className="page flex flex-col items-center">
       <PageTitle title="Match Results"/>
@@ -34,7 +56,7 @@ export default function MushroomPage() {
             <h1 className="name my-2 text-[#203B5F] text-4xl font-semibold">Death Cap</h1>
             <h2 className="scientific-name text-xl text-gray-500 italic">Amanita phalloides</h2>
           </div>
-          <button><img className="w-[80%] h-[80%]" src="/icons/add_btn.svg" alt="add to collection"/></button>
+          <button><img className="fav-button w-[80%] h-[80%]" src="/icons/add_btn.svg" alt="add to collection" onClick={()=>toggleFavorite("Death Cap")}/></button>
         </div>
 
         <div className="fast-facts mb-6 p-6 bg-[#8E4A49] w-[100%] h-[auto] flex flex-col rounded-3xl">
@@ -65,10 +87,11 @@ export default function MushroomPage() {
         <div className="similar-matches-container mb-10">
           <h1 className="title mt-8 mb-0 text-[#324053] text-center font-nunito text-[30px] font-bold leading-normal">Similar Matches</h1>
           <div className="matches p-8 flex flex-row flex-wrap justify-between">
-            <Postcard name="Paddy Straw" image="/images/paddy_straw_sm.png"/>
+            <MushroomList searchTerm={""} filterList={{}} favorite={favorite} type={"similar"}/>
+            {/* <Postcard name="Paddy Straw" image="/images/paddy_straw_sm.png"/>
             <Postcard name="Destroying Angel" warning="true" image="/images/destroying_angel_sm.png"/>
             <Postcard name="False Death Cap" warning="true" image="/images/false_death_cap_sm.png"/>
-            <Postcard name="Puffball" image="/images/puffball_sm.png"/>
+            <Postcard name="Puffball" image="/images/puffball_sm.png"/> */}
           </div>
           
         </div>

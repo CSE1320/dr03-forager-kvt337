@@ -1,9 +1,29 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
 import Postcard from './Postcard';
 import { mushroomData } from '../data/development';
 
-const MushroomList = ({ searchTerm, filterList }) => {
-    const filteredMushrooms = mushroomData.filter((mushroom) => {
+const MushroomList = ({ searchTerm, filterList, favorite, type }) => {
+
+    const [mushrooms, setMushrooms] = useState(mushroomData);
+
+    console.log("Current mushrooms:", mushrooms);
+    // Effect to update mushrooms list when the favorite changes
+    useEffect(() => {
+        if (favorite.includes("Death Cap")) {
+          setMushrooms((prevMushrooms) =>
+            prevMushrooms.map((mushroom) =>
+              mushroom.name === "Death Cap"
+                ? { ...mushroom, filters: [...new Set([...mushroom.filters, "Favorites"])] }
+                : mushroom
+            )
+          );
+        }
+      }, [favorite]); // Depend on `favorite`
+      
+      
+      
+    const filteredMushrooms = mushrooms.filter((mushroom) => {
         const matchesSearch = mushroom.name.toLowerCase().includes(searchTerm.toLowerCase());
     
         const matchesFilters =
@@ -15,7 +35,6 @@ const MushroomList = ({ searchTerm, filterList }) => {
     
         return matchesSearch && matchesFilters;
     });
-    
     
     return (
         <ul className="mushroom-list flex flex-wrap list-none">
