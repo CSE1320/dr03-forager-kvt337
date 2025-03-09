@@ -2,11 +2,12 @@
 ####################### Makefile Template ##############################
 ########################################################################
 # Student settings
-NAME = YOURNAME
-SID = YOURSID
-EMAIL = YOURUTAEMAIL
+NAME = Kayla Toliver
+SID = 1001875457
+EMAIL = kvt5457@mavs.uta.edu
 SEMESTER = SPRING2025
-PROJECT=PROJ03
+PROJECT=DR03
+https://www.youtube.com/watch?v=-cH7LKdI-Ro
  
 
 ####### DO NOT EDIT BELOW THIS LINE!!! #########
