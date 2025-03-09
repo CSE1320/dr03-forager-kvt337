@@ -3,15 +3,21 @@ import { useState } from 'react';
 import Link from 'next/link';
 import NavBar from '../../components/NavBar';
 import PageTitle from '@/components/PageTitle';
-import Button from '@/components/Button';
+import InfoMessage from '@/components/InfoMessage';
 import Message from '@/components/Message';
 import Postcard from '@/components/Postcard';
 import '@/styles/globals.css';
-import MushroomList from '@/components/MushroomList';
+import SimilarMatches from '@/components/SimilarMatches';
+import AlertPage from '@/components/AlertPage';
 
 export default function MushroomPage() {
 
   const [favorite, setFavorite] = useState("");
+  const [showAlert, setShowAlert] = useState(true); 
+
+  const toggleAlert = () => {
+    setShowAlert(!showAlert); 
+  };
 
   const toggleFavorite = (mushroomId) => {
     setFavorite((prev) => {
@@ -31,6 +37,7 @@ export default function MushroomPage() {
   
   return (
     <div className="page flex flex-col items-center">
+      {showAlert && <AlertPage onClose={toggleAlert}/>}
       <PageTitle title="Match Results"/>
 
       <div className="page-items mt-[120px] flex flex-col items-center w-[80%] overflow-y">
@@ -39,7 +46,7 @@ export default function MushroomPage() {
           <p className="report-link text-gray-500 underline">Report Error</p>
         </div>
 
-        <Message/>
+        <Message header="warning" message="This is a toxic species. Proceed with caution." />
 
         <div className="compare-btn w-[100%] flex justify-end">
           <Link href="/comparison">
@@ -84,15 +91,19 @@ export default function MushroomPage() {
         esse cillum dolore eu fugiat nulla pariatur.
         </p>
 
-        <div className="similar-matches-container mb-10">
+        <div className="similar-matches-container flex flex-col justify-center items-center mb-20 px-10 relative">
           <h1 className="title mt-8 mb-0 text-[#324053] text-center font-nunito text-[30px] font-bold leading-normal">Similar Matches</h1>
-          <div className="matches p-8 flex flex-row flex-wrap justify-between">
-            <MushroomList searchTerm={""} filterList={{}} favorite={favorite} type={"similar"}/>
+          
+          <InfoMessage 
+          message="Percentages indicate lorem ipsum dolor sit amet, consectuer
+                  adipisding elit." />
+          <SimilarMatches/>
+            {/* <MushroomList searchTerm={""} filterList={{}} favorite={favorite} type={"similar"}/> */}
             {/* <Postcard name="Paddy Straw" image="/images/paddy_straw_sm.png"/>
             <Postcard name="Destroying Angel" warning="true" image="/images/destroying_angel_sm.png"/>
             <Postcard name="False Death Cap" warning="true" image="/images/false_death_cap_sm.png"/>
             <Postcard name="Puffball" image="/images/puffball_sm.png"/> */}
-          </div>
+          
           
         </div>
         

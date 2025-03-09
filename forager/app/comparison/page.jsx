@@ -37,7 +37,7 @@ export default function MushroomComparisonPage() {
     <div className="page">
       <PageTitle title="Compare"/>
       <div className="page-content pt-[140px] pb-[120px]  px-6 flex flex-col items-center overflow-y">
-        <Message/>
+        <Message header="warning" message="This is a toxic species, proceed with caution."/>
         <div></div>
         <div className="photos-container w-full flex justify-between items-center">
           <div className="w-1/2 flex flex-col justify-center items-center">
